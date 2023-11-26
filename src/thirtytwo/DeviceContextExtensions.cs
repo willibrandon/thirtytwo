@@ -173,4 +173,47 @@ public static unsafe partial class DeviceContextExtensions
         GC.KeepAlive(deviceContext.Wrapper);
         return Bitmap.Create(hbitmap, ownsHandle: true);
     }
+
+    public static bool GetTextMetrics<TDeviceContext>(this TDeviceContext deviceContext, out TEXTMETRICW metrics)
+        where TDeviceContext : IHandle<HDC>
+    {
+        if (!Interop.GetTextMetrics(deviceContext.Handle, out metrics))
+        {
+            Error.ThrowLastError();
+        }
+
+        GC.KeepAlive(deviceContext.Wrapper);
+        return true;
+    }
+
+    public static bool TextOut<TDeviceContext>(this TDeviceContext deviceContext, int x, int y, ReadOnlySpan<char> text)
+        where TDeviceContext : IHandle<HDC>
+    {
+        fixed (char* t = text)
+        {
+            if (!Interop.TextOut(deviceContext.Handle, x, y, (PWSTR)t, text.Length))
+            {
+                Error.ThrowLastError();
+            }
+        }
+
+        GC.KeepAlive(deviceContext.Wrapper);
+        return true;
+    }
+
+    public static int SetTextAlign<TDeviceContext>(this TDeviceContext deviceContext, TEXT_ALIGN_OPTIONS alignment)
+        where TDeviceContext : IHandle<HDC>
+    {
+        int result = (int)Interop.SetTextAlign(deviceContext.Handle, alignment);
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
+
+    public static int GetDeviceCaps<TDeviceContext>(this TDeviceContext deviceContext, GET_DEVICE_CAPS_INDEX index)
+        where TDeviceContext : IHandle<HDC>
+    {
+        int result = Interop.GetDeviceCaps(deviceContext.Handle, index);
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
 }

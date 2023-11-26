@@ -42,6 +42,7 @@ DefWindowProc
 DeleteDC
 DestroyIcon
 DestroyWindow
+DeviceCapabilitiesW
 DISPATCH_CONSTRUCT
 DispatchMessage
 DISP_E_*
@@ -114,6 +115,7 @@ GetProcessDpiAwareness
 GetRgnBox
 GetStockObject
 GetSysColorBrush
+GetTextMetrics
 GetThreadDpiAwarenessContext
 GetThreadLocale
 GetUpdatedClipboardFormats
@@ -242,6 +244,7 @@ SetFocus
 SetGraphicsMode
 SetLayeredWindowAttributes
 SetMapMode
+SetTextAlign
 SetThreadDpiAwarenessContext
 SetWindowLong
 SetWindowRgn
@@ -264,6 +267,10 @@ SYSTEM_PROCESS_INFORMATION
 SYSTEM_THREAD_INFORMATION
 TaskDialog
 TD_*
+TEXT_ALIGN_OPTIONS
+TEXTMETRICW
+TextOut
+TMPF_FLAGS
 TranslateMessage
 TYPE_E_ELEMENTNOTFOUND
 TYPE_E_LIBNOTREGISTERED
