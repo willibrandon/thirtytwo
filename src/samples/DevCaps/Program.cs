@@ -1,7 +1,8 @@
 using Windows;
 using Windows.Win32.Foundation;
 using Windows.Win32.Graphics.Gdi;
-namespace Windows101;
+
+namespace DevCaps;
 
 /// <summary>
 ///  Sample from Programming Windows, 5th Edition.
