@@ -216,4 +216,92 @@ public static unsafe partial class DeviceContextExtensions
         GC.KeepAlive(deviceContext.Wrapper);
         return result;
     }
+
+    public static HCURSOR SetCursor<TDeviceContext>(this TDeviceContext deviceContext, HCURSOR cursor)
+        where TDeviceContext : IHandle<HDC>
+    {
+        HCURSOR result = Interop.SetCursor(cursor);
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
+
+    public static HCURSOR LoadCursor<TDeviceContext>(this TDeviceContext deviceContext, HINSTANCE instance, int cursorId)
+        where TDeviceContext : IHandle<HDC>
+    {
+        HCURSOR result = Interop.LoadCursor(instance, cursorId.ToString());
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
+
+    public static int ShowCursor<TDeviceContext>(this TDeviceContext deviceContext, bool show)
+        where TDeviceContext : IHandle<HDC>
+    {
+        int result = Interop.ShowCursor(new BOOL(show));
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
+
+    public static bool DeleteObject<TDeviceContext>(this TDeviceContext deviceContext, HGDIOBJ @object)
+        where TDeviceContext : IHandle<HDC>
+    {
+        bool result = Interop.DeleteObject(@object);
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
+
+    public static HRGN CreateEllipticRgn<TDeviceContext>(this TDeviceContext deviceContext, int x1, int y1, int x2, int y2)
+        where TDeviceContext : IHandle<HDC>
+    {
+        HRGN result = Interop.CreateEllipticRgn(x1, y1, x2, y2);
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
+
+    public static HRGN CreateRectRgn<TDeviceContext>(this TDeviceContext deviceContext, int x1, int y1, int x2, int y2)
+        where TDeviceContext : IHandle<HDC>
+    {
+        HRGN result = Interop.CreateRectRgn(x1, y1, x2, y2);
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
+
+    public static GDI_REGION_TYPE CombineRgn<TDeviceContext>(this TDeviceContext deviceContext, HRGN hrgnDest, HRGN hrgnSrc1, HRGN hrgnSrc2, RGN_COMBINE_MODE mode)
+        where TDeviceContext : IHandle<HDC>
+    {
+        GDI_REGION_TYPE result = Interop.CombineRgn(hrgnDest, hrgnSrc1, hrgnSrc2, mode);
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
+
+    public static bool SetViewPortOrgEx<TDeviceContext>(this TDeviceContext deviceContext, int x, int y)
+        where TDeviceContext : IHandle<HDC>
+    {
+        bool result = Interop.SetViewportOrgEx(deviceContext.Handle, x, y, null);
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
+
+    public static GDI_REGION_TYPE SelectClipRgn<TDeviceContext>(this TDeviceContext deviceContext, HRGN hrgn)
+        where TDeviceContext : IHandle<HDC>
+    {
+        GDI_REGION_TYPE result = Interop.SelectClipRgn(deviceContext.Handle, hrgn);
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
+
+    public static bool MoveToEx<TDeviceContext>(this TDeviceContext deviceContext, int x, int y)
+        where TDeviceContext : IHandle<HDC>
+    {
+        bool result = Interop.MoveToEx(deviceContext.Handle, x, y, null);
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
+
+    public static bool LineTo<TDeviceContext>(this TDeviceContext deviceContext, int x, int y)
+        where TDeviceContext : IHandle<HDC>
+    {
+        bool result = Interop.LineTo(deviceContext.Handle, x, y);
+        GC.KeepAlive(deviceContext.Wrapper);
+        return result;
+    }
 }

@@ -27,6 +27,7 @@ CreateActCtx
 CreateCompatibleBitmap
 CreateCompatibleDC
 CreateDispTypeInfo
+CreateEllipticRgn
 CreateErrorInfo
 CreateFont
 CreateFontIndirect
@@ -40,6 +41,7 @@ CW_USEDEFAULT
 DeactivateActCtx
 DefWindowProc
 DeleteDC
+DeleteObject
 DestroyIcon
 DestroyWindow
 DeviceCapabilitiesW
@@ -185,6 +187,7 @@ KEY_INFORMATION_CLASS
 KEY_NAME_INFORMATION
 KF_*
 LIBFLAGS
+LineTo
 LoadCursor
 LoadIcon
 LoadLibrary
@@ -197,6 +200,7 @@ MEMBERID_NIL
 MessageBoxEx
 METHODDATA
 MODIFIERKEYS_FLAGS
+MoveToEx
 MoveWindow
 MSGF_*
 MulDiv
@@ -226,6 +230,7 @@ RegOpenKeyEx
 RegQueryInfoKey
 RegQueryValueEx
 ReleaseDC
+RGN_COMBINE_MODE
 ROLE_SYSTEM_*
 S_FALSE
 S_OK
@@ -237,9 +242,11 @@ SafeArrayUnlock
 ScreenToClient
 SendMessage
 SELFLAG_*
+SelectClipRgn
 SelectObject
 SetActiveWindow
 SetClipboardData
+SetCursor
 SetFocus
 SetGraphicsMode
 SetLayeredWindowAttributes
@@ -250,10 +257,12 @@ SetWindowLong
 SetWindowRgn
 SetWindowText
 SetWorldTransform
+SetViewportOrgEx
 SHCreateShellItem
 SHDefExtractIcon
 SHGetStockIconInfo
 SHParseDisplayName
+ShowCursor
 ShowWindow
 STATE_SYSTEM_*
 STATIC_STYLES
