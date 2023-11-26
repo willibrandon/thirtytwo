@@ -52,7 +52,7 @@ internal class Program
             new DEVCAPS() { iIndex = (int)GET_DEVICE_CAPS_INDEX.COLORRES, szLabel = "COLORRES", szDesc = "Actual color resolution:" },
         ];
 
-        public DeviceCapsWindow() : base(DefaultBounds, text: "DevCaps1", style: WindowStyles.OverlappedWindow)
+        public DeviceCapsWindow() : base(DefaultBounds, text: "Device Capabilities", style: WindowStyles.OverlappedWindow)
         {
             using DeviceContext dc = this.GetDeviceContext();
             dc.GetTextMetrics(out TEXTMETRICW tm);
